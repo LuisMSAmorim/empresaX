@@ -1,0 +1,20 @@
+<a href="/admin">
+  <button class="btn btn-primary btn-sm">Voltar</button>
+</a>
+
+<h1 class="mt-4">Departamentos:</h1>
+
+{{#each departamentos}}
+    <div class="card mt-4">
+        <div class="card-body">
+            <h4>{{nome}}</h4>
+            <small>Slug: {{slug}}</small> <br>
+            <a href="/user/colaboradores/{{slug}}">
+                <button class="btn btn-primary btn-sm mt-3">Ver mais</button>
+            </a>
+        </div>
+    </div>
+    
+{{else}}
+<h4 class="mt-4">Nenhum departamento registrado</h4>
+{{/each}}

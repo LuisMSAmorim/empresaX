@@ -1,0 +1,28 @@
+{{#each erros}}
+    <div class="alert alert-danger">{{texto}}</div>
+{{else}}
+
+{{/each}}
+<div class="card">
+    <div class="card-body">
+        <h4>Editar colaborador: </h4>
+        <form action="/admin/colaboradores/edit" method="POST">
+            <input type="hidden" name="id" value="{{colaborador._id}}">
+            <label for="name" class="mt-2">Nome:</label>
+            <input type="text" name="name" class="form-control" value="{{colaborador.nome}}" required>
+            <label for="slug" class="mt-2">Slug:</label>
+            <input type="text" name="slug" class="form-control" value="{{colaborador.slug}}" required>
+            <label for="cargo" class="mt-2">Cargo:</label>
+            <input type="text" name="cargo" class="form-control" value="{{colaborador.cargo}}" required>
+            <label for="departamento" class="mt-2">Departamento: </label>
+            <select name="departamento" class="form-select">
+                {{#each departamentos}}
+                    <option value="{{_id}}">{{nome}}</option>
+                {{else}}
+                    <option value="0">Nenhum departamento registrado</option>
+                {{/each}}
+            </select>
+            <button type="submit" class="btn btn-primary mt-3">Editar colaborador</button>
+        </form>
+    </div>
+</div>

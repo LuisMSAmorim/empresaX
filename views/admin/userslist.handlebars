@@ -1,0 +1,32 @@
+<a href="/admin">
+  <button class="btn btn-primary btn-sm">Voltar</button>
+</a>
+
+<h1 class="mt-4">Lista de usuários:</h1>
+<hr>
+<a href="/admin/register">
+<button class="btn btn-primary">Novo usuário</button>
+</a>
+
+{{#each users}}
+<div class="card mt-4">
+    <div class="card-body">
+        <h4>{{nome}}</h4>
+        <p>{{email}}</p>
+        <small>{{date}}</small>
+        {{!-- <input type="hidden" name="id" value="{{_id}}"> --}}
+        <div>
+            <a href="/admin/userslist/edit/{{_id}}">
+                <button class="btn btn-primary mt-3">Editar usuário</button>
+            </a>
+            <form action="/admin/userslist/delete" method="POST">
+                <input type="hidden" name="id" value="{{_id}}"> 
+                <button class="btn btn-danger mt-1" type="submit">Excluir usuário</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{else}}
+<h4 class="mt-4">Nenhum usuário registrado</h4>
+{{/each}}

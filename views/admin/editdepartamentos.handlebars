@@ -1,0 +1,21 @@
+{{#each erros}}
+    <div class="alert alert-danger">
+        {{texto}}
+    </div>
+{{else}}
+
+{{/each}}
+<h3>Editar departamento: </h3>
+<div class="card">
+    <div class="card-body">
+        <form action="/admin/departamentos/edit" method="POST">
+            <input type="hidden" name="id" value="{{departamento._id}}">
+            <label for="name">Nome: </label>
+            <input class="form-control" type="text" name="name" value="{{departamento.nome}}" required>
+            <label for="slug" class="mt-4">Slug:</label>
+            <input class="form-control" type="text" name="slug" value="{{departamento.slug}}" required>
+            <br>
+            <button type="submit" class="btn btn-primary">Editar departamento</button>
+        </form>
+    </div>
+</div>

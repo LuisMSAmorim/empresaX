@@ -1,0 +1,31 @@
+<a href="/admin">
+  <button class="btn btn-primary btn-sm">Voltar</button>
+</a>
+
+<h1 class="mt-4">Lista de colaboradores:</h1>
+<hr>
+<a href="/admin/colaboradores/add">
+<button class="btn btn-primary">Novo colaborador</button>
+</a>
+
+{{#each colaboradores}}
+<div class="card mt-4">
+    <div class="card-body">
+        <h4>{{nome}}</h4>
+        <p>Cargo: {{cargo}}</p>
+        <small>Data: {{date}}</small><br>
+        <small>Departamento: {{departamento.nome}}</small><br>
+        <a href="/admin/colaboradores/edit/{{_id}}">
+        <button type="submit" class="btn btn-primary mt-3">Editar colaborador</button>
+        </a>
+        <form action="/admin/colaboradores/delete" method="POST">
+          <input type="hidden" name="id" value="{{_id}}">
+          <button class="btn btn-danger mt-1" type="submit">Excluir colaborador</button>
+        </form>
+    </div>
+</div>
+
+{{else}}
+<p class="mt-4">Nenhum colaborador registrado</p>
+{{/each}}
+

@@ -1,0 +1,18 @@
+<a href="/user/departamentos">
+  <button class="btn btn-primary btn-sm">Voltar</button>
+</a>
+
+<h1 class="mt-4">{{departamento.nome}}</h1>
+{{#each colaboradores}}
+<div class="card mt-4">
+     <div class="card-body">
+        <h3>{{nome}}</h3>
+        <p>Cargo: {{cargo}}</p>
+        <hr>
+        <small>{{date}}</small>
+        <br>    
+    </div>
+</div>
+{{else}}
+    <h5>Nenhum colaborador</h5>
+{{/each}}

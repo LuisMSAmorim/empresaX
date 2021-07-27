@@ -1,0 +1,28 @@
+<a href="/admin">
+  <button class="btn btn-primary btn-sm">Voltar</button>
+</a>
+
+<h1 class="mt-4">Lista de departamentos:</h1>
+<hr>
+<a href="/admin/departamentos/add">
+<button class="btn btn-primary">Novo departamento</button>
+</a>
+
+{{#each departamentos}}
+    <div class="card mt-4">
+        <div class="card-body">
+            <h4>{{nome}}</h4>
+            <small>Slug: {{slug}}</small> <br>
+            <a href="/admin/departamentos/edit/{{_id}}">
+            <button class="btn btn-primary mt-3">Editar departamento</button>
+            </a>
+            <form action="/admin/departamentos/delete" method="POST">
+              <input type="hidden" name="id" value="{{_id}}">
+              <button class="btn btn-danger mt-1" type="submit">Excluir departamento</button>
+            </form>
+        </div>
+    </div>
+    
+{{else}}
+<h4 class="mt-4">Nenhum departamento registrado</h4>
+{{/each}}
